@@ -144,15 +144,15 @@ export default function App() {
 
       {/* Administrators */}
       <View style={styles.cards}>
-        <View style={styles.cardContainer}>
-          <View style={[styles.card, styles.darkBackground]}>
+        <View style={styles.cardContainer2}>
+          <View style={[styles.card, styles.whiteBackground]}>
             <View style={styles.cardBody}>
               {/* Icon */}
               <Text style={styles.cardIcon}>💻</Text>
               {/* Title */}
-              <Text style={styles.cardTitle}>Pabs</Text>
+              <Text style={styles.cardTitle2}>Pabs</Text>
               {/* Description */}
-              <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
+              <Text style={styles.cardText2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
               {/* Button */}
               <TouchableOpacity style={styles.cardButton}>
                 <Text style={styles.cardButtonText}>Go somewhere</Text>
@@ -162,11 +162,11 @@ export default function App() {
 
           {/* Repeat for other cards */}
           {/* Second Card */}
-          <View style={[styles.card, styles.secondaryBackground]}>
+          <View style={[styles.card, styles.whiteBackground]}>
             <View style={styles.cardBody}>
               <Text style={styles.cardIcon}>👤</Text>
-              <Text style={styles.cardTitle}>Danz</Text>
-              <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
+              <Text style={styles.cardTitle2}>Danz</Text>
+              <Text style={styles.cardText2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
               <TouchableOpacity style={styles.cardButton}>
                 <Text style={styles.cardButtonText}>Go somewhere</Text>
               </TouchableOpacity>
@@ -174,34 +174,32 @@ export default function App() {
           </View>
 
           {/* Third Card */}
-          <View style={[styles.card, styles.darkBackground]}>
+          <View style={[styles.card, styles.whiteBackground]}>
             <View style={styles.cardBody}>
               <Text style={styles.cardIcon}>👥</Text>
-              <Text style={styles.cardTitle}>Risu</Text>
-              <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
+              <Text style={styles.cardTitle2}>Risu</Text>
+              <Text style={styles.cardText2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
               <TouchableOpacity style={styles.cardButton}>
                 <Text style={styles.cardButtonText}>Go somewhere</Text>
               </TouchableOpacity>
             </View>
           </View>
           {/* Fourth Card */}
-          <View style={[styles.card, styles.darkBackground]}>
+          <View style={[styles.card, styles.whiteBackground]}>
             <View style={styles.cardBody}>
               <Text style={styles.cardIcon}>👥</Text>
-              <Text style={styles.cardTitle}>Nozo</Text>
-              <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
+              <Text style={styles.cardTitle2}>Nozo</Text>
+              <Text style={styles.cardText2}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptatem repellendus unde veniam eius quia inventore amet dicta? Incidunt, cumque.</Text>
               <TouchableOpacity style={styles.cardButton}>
                 <Text style={styles.cardButtonText}>Go somewhere</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
-        
       </View>
 
       {/* Modal */}
       {/* Implement modal component */}
-
       {/* Footer */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>Copyright © 2023</Text>
@@ -297,6 +295,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 10,
   },
+  cardContainer2: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    backgroundColor: "#1a75ff"
+  },
   card: {
     marginTop: 10,
     flex: 1,
@@ -321,6 +325,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
+  cardTitle2: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+    color: '#000',
+  },
+  cardText2: {
+    color: '#000',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
   cardButton: {
     backgroundColor: '#fff',
     paddingVertical: 8,
@@ -333,6 +348,9 @@ const styles = StyleSheet.create({
   },
   darkBackground: {
     backgroundColor: '#000',
+  },
+  whiteBackground: {
+    backgroundColor: '#ffffff'
   },
   secondaryBackground: {
     backgroundColor: '#6c757d',
