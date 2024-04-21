@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
 import Collapsible from 'react-native-collapsible';
+import ConnectWithUs from './screens/ConnectWithUs'; // Import the ConnectWithUs component
 
 export default function App() {
-//ACCORDION
+  // State variable to control the visibility of the ConnectWithUs component
+  const [showConnectWithUs, setShowConnectWithUs] = useState(true);
+
+  //ACCORDION
   const [isCollapsed1, setIsCollapsed1] = useState(true);
   const [isCollapsed2, setIsCollapsed2] = useState(true);
   const [isCollapsed3, setIsCollapsed3] = useState(true);
@@ -20,15 +24,18 @@ export default function App() {
       <View style={styles.getConnected}>
         <Text style={styles.heading}>Get Connected to The Next Generation</Text>
         <Text style={styles.paragraph}>
-        CITC-COnext is designed to be your central hub for everything related to the Department of Computer Information Technology and Communication (CITC). 
-        
-        Here, you'll find the latest news, updates, announcements, and resources to help you navigate your academic journey within the CITC department. Looking forward to serve you!
+          CITC-COnext is designed to be your central hub for everything related to the Department of Computer Information Technology and Communication (CITC).
+          
+          Here, you'll find the latest news, updates, announcements, and resources to help you navigate your academic journey within the CITC department. Looking forward to serve you!
         </Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => setShowConnectWithUs(!showConnectWithUs)}>
           <Text style={styles.buttonText}>Connect With Us!</Text>
         </TouchableOpacity>
         <Image source={require('./assets/img1.png')} style={styles.image} />
       </View>
+
 
       {/* Subscription */}
       <View style={styles.subscription}>
@@ -206,6 +213,10 @@ export default function App() {
       <View style={styles.footer}>
         <Text style={styles.footerText}>Copyright © 2023</Text>
       </View>
+
+      {/* Conditionally render the ConnectWithUs component */}
+      {showConnectWithUs && <ConnectWithUs />}
+      
     </ScrollView>
   );
 }
