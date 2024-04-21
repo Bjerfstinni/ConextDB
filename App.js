@@ -145,6 +145,8 @@ export default function App() {
       {/* Administrators */}
       <View style={styles.cards}>
         <View style={styles.cardContainer2}>
+              <Text style={styles.cardTitle3}>The Administrators</Text> 
+              <Text style={styles.cardText3}>Our administrators are experts in the field of IT within 5 years of experience</Text>
           <View style={[styles.card, styles.whiteBackground]}>
             <View style={styles.cardBody}>
               {/* Icon */}
@@ -335,6 +337,20 @@ const styles = StyleSheet.create({
     color: '#000',
     textAlign: 'center',
     marginBottom: 10,
+  },
+  cardTitle3: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginTop: 35,
+    marginBottom: 10,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  cardText3: {
+    fontSize: 15,
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 30,
   },
   cardButton: {
     backgroundColor: '#fff',
