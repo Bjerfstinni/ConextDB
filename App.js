@@ -1,13 +1,35 @@
+import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
+import { ScrollView, View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import AuthScreen from './screens/AuthScreen'; // Import the AuthScreen component
 import Collapsible from 'react-native-collapsible';
-import ConnectWithUs from './screens/ConnectWithUs'; // Import the ConnectWithUs component
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  // State variable to control the visibility of the ConnectWithUs component
-  const [showConnectWithUs, setShowConnectWithUs] = useState(true);
+  const [isCollapsed1, setIsCollapsed1] = useState(true);
+  const [isCollapsed2, setIsCollapsed2] = useState(true);
+  const [isCollapsed3, setIsCollapsed3] = useState(true);
 
-  //ACCORDION
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: { backgroundColor: '#044556' }, // Set the background color here
+          headerTintColor: '#fff', // Set the text color of the header buttons
+          headerTitleStyle: { fontWeight: 'bold' }, // Set the style of the header title
+        }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'USTP-CoNext' }}/>
+        <Stack.Screen name="Auth" component={AuthScreen} options={{ title: 'USTP-CoNext' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function HomeScreen({ navigation }) {
   const [isCollapsed1, setIsCollapsed1] = useState(true);
   const [isCollapsed2, setIsCollapsed2] = useState(true);
   const [isCollapsed3, setIsCollapsed3] = useState(true);
@@ -15,10 +37,6 @@ export default function App() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Navigation */}
-      <View style={styles.navbar}>
-        <Text style={styles.navbarText}>USTP CONeXT</Text>
-        {/* Add navigation buttons */}
-      </View>
 
       {/* Get Connected */}
       <View style={styles.getConnected}>
@@ -30,12 +48,11 @@ export default function App() {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => setShowConnectWithUs(!showConnectWithUs)}>
+          onPress={() => navigation.navigate('Auth')}>
           <Text style={styles.buttonText}>Connect With Us!</Text>
         </TouchableOpacity>
         <Image source={require('./assets/img1.png')} style={styles.image} />
       </View>
-
 
       {/* Subscription */}
       <View style={styles.subscription}>
@@ -119,8 +136,8 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      {/* Accordion */}
-      <View style={styles.accordion}>
+{/* Accordion */}
+<View style={styles.accordion}>
         <TouchableOpacity
           style={styles.accordionButton}
           onPress={() => setIsCollapsed1(!isCollapsed1)}>
@@ -213,9 +230,6 @@ export default function App() {
       <View style={styles.footer}>
         <Text style={styles.footerText}>Copyright © 2023</Text>
       </View>
-
-      {/* Conditionally render the ConnectWithUs component */}
-      {showConnectWithUs && <ConnectWithUs />}
       
     </ScrollView>
   );
